@@ -3,15 +3,30 @@
 //         this._id = id
 //         this._name =  name;
 //     }
+//     set name(value) {
+//         this._name = value
+//     }
+//     get name() {
+//         return this._name
+//     }
 // }
 
 // class User {
-//     constructor(id, name, sellers) {
+//     constructor(id, name) {
 //         this._id = id;
 //         this._name = name;
-//         this._sellers = sellers;
+//     }
+//     beli(seller){
+//         console.log(`${this._name} beli ke ${seller}`)
 //     }
 // }
+
+// const penjual = new Seller()
+// penjual.name = 'Pak Indra';
+
+// // console.log(penjual.name)
+// const pengguna = new User(2, 'Budi', penjual.name)
+// pengguna.beli(penjual.name)
 
 // Aggregation
 // class Shop {
@@ -40,24 +55,38 @@
 // }
 
 // Compoisition
-// class User {
-//     constructor(id, name, address){
-//         this._id = id;
-//         this._name = name;
-//         this._address = address;
-//         console.log(`${id}. ${name}, ${address}`)
-//     }
-// }
+class User {
+    constructor(id, name, address){
+        this._id = id;
+        this._name = name;
+        this._address = address;
+    }
 
-// class Address {
-//     constructor(id, district){
-//         this._id = id;
-//         this._district = district;
-//     }
-// }
+    set id(value) {
+        this._id = value
+    }
+    get id(){
+        return this._id
+    }
+    
+}
 
-// const main = () => {
-//     const indra = new User(8, 'Indra Maulana Yasya', new Address(22, 'Rajeg'))
-// }
+class Address {
+    constructor(id, district){
+        this._id = id;
+        this._district = district;
+    }
 
-// main()
+    tampilkanAlamat() {
+        console.log(`No. ${this._id} ${this._district} `)
+    }
+}
+
+const main = () => {
+    const indra = new User()
+    indra.id = 12
+    const tempatLahir = new Address(indra.id, 'Rajeg, Tangerang')
+    tempatLahir.tampilkanAlamat()
+}
+
+main()
